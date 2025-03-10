@@ -136,8 +136,7 @@ class SpaceGame:
         pass
     
     def abandoned_ship(self):
-        # display "An abandoned spaceship drifts in the void. Do you explore it?"
-        pass
+        print("An abandoned spaceship drifts in the void. Do you explore it?")
     
     def black_hole(self):
         # display "A black hole is nearby! Will you attempt to study it or flee?"
