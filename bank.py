@@ -81,7 +81,17 @@ class Account:
     
     def apply_interest(self, rate):
         # Applies interest based on a given rate.
-        pass
+        if rate < 0:
+            raise ValueError("Interest rate must be non-negative")
+        interest = self.balance * rate
+        self.balance += interest
+        # Optionally, record this as a transaction
+        from datetime import datetime
+        self.transactions.append({
+            "type": "Interest",
+            "amount": interest,
+            "timestamp": datetime.now().isoformat()
+        })
 
     
     def overdraft_protection(self, amount):
@@ -182,3 +192,4 @@ class Loan:
         self.tenure = new_terms.get("tenure", self.tenure)
         self.interest_rate = new_terms.get("interest_rate", self.interest_rate)
         return True
+
